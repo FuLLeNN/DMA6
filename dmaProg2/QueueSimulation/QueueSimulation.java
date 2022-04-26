@@ -9,9 +9,9 @@ public class QueueSimulation
   public int simulate(ArrayList<Integer> input)
   {
     stack.addAll(input); //put array list inside the queue
-    // 1 "addAll"  = 1 
+    // 1 "addAll"  = n
     while(stack.size()>=2){ //while stack size is bigger than 2 elements do
-      //1 ">=" 1 size call = 2 
+      //1 ">=", 1 size call method, loop = 2 + n
       
       stack.removeFirst(); //remove the first element
       //1 remove  = 1
@@ -21,10 +21,9 @@ public class QueueSimulation
     }
     return stack.getLast(); //return the end of stack when the while finish
     // 1 return 
-    //
-    //T(n) = 2 + 1 + n*(2+1+2) + 1
-    //T(n)=5n
-    //T(n)=n
-    //O(n)
+    
+    //T(n) = 2 + n + n(2+1+2) + 1
+    //So ignoring constants
+    //T(n) = O(n)
   }
 }
