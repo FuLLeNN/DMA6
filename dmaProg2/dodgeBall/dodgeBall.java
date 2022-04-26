@@ -31,16 +31,14 @@ public class dodgeBall
   }
 
   public void lower(int x){
-    int player = players.lower(x); //save nearest lower player to be easier to remove and add
-    distance = x-player; // calculate distance from the player to the ball
-    players.remove(player); //remove the player from the TreeSet
-    players.add(player+distance); //add player with the new position after going to the ball position
+    distance = x-players.lower(x); // calculate distance from the player to the ball
+    players.remove(players.lower(x)); //remove the player from the TreeSet
+    players.add(x); //add player with the new position
   }
 
   public void higher(int x){
-    int player = players.higher(x); //save nearest higher player to be easier to remove and add
-    distance = player-x; //calculate distance from player to the ball
-    players.remove(player); //remove the player from the TreeSet
-    players.add(player-distance); //add player with the new position after going to the ball position
+    distance = players.lower(x)-x; //calculate distance from player to the ball
+    players.remove(players.lower(x)); //remove the player from the TreeSet
+    players.add(x); //add player with the new position
   }
 }
