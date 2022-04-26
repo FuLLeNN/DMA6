@@ -49,13 +49,25 @@ public class dodgeBall
 
   public void lower(int x){
     distance = x-players.lower(x); // calculate distance from the player to the ball
+    //1 assignment, 1 method call, 1 "-" = 3
     players.remove(players.lower(x)); //remove the player from the TreeSet
+    //2 method call = 2
     players.add(x); //add player with the new position
+    //1 method call = 1
   }
 
   public void higher(int x){
     distance = players.lower(x)-x; //calculate distance from player to the ball
+    //1 assignment, 1 method call, 1 "-" = 3
     players.remove(players.lower(x)); //remove the player from the TreeSet
+    //2 method call = 2
     players.add(x); //add player with the new position
+    //1 method call = 1
   }
 }
+/*
+In the worst case we can get
+T(n) = 2 + 1 + 1 + 5 + 5 + 1 + 3 + 2 + 1
+So ignoring constants
+T(n) = O(1)
+*/
