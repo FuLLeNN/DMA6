@@ -7,64 +7,29 @@ public class ReversePolishCalculator
   private final Deque<Integer> stack = new ArrayDeque<>();
 
   public void push(int n) {
-    //add N to the Stack
+    // TODO Insert your method here
     stack.add(n);
   }
 
   public void plus() {
-    try{
-      if(stack.size()>=2) {
-        //store last number and remove it from the stack
-        int lastNumber = stack.removeLast();
-        //store penultimate number and remove it from the stack
-        int penultimateNumber = stack.removeLast();
-        //push the number after addition
-        push((lastNumber + penultimateNumber));
-      }
-    }catch (Exception e){
-      e.printStackTrace();
-    }
+    // TODO Insert your method here
+    stack.addLast(stack.pollLast()+stack.pollLast());
   }
 
   public void minus() {
-    try{
-      if(stack.size()>=2){
-        //store last number and remove it from the stack
-        int lastNumber = stack.removeLast();
-        //store penultimate number and remove it from the stack
-        int penultimateNumber = stack.removeLast();
-        //push the number after addition
-        push((penultimateNumber - lastNumber));
-      }
-    }catch (Exception e){
-      e.printStackTrace();
-    }
+    // TODO Insert your method here
+    int a = stack.pollLast();
+    int b = stack.pollLast();
+    stack.addLast(b-a);
   }
 
   public void times() {
-    try{
-      if(stack.size()>=2) {
-        //store last number and remove it from the stack
-        int lastNumber = stack.removeLast();
-        //store penultimate number and remove it from the stack
-        int penultimateNumber = stack.removeLast();
-        //push the number after addition
-        push((lastNumber * penultimateNumber));
-      }
-    }catch (Exception e){
-      e.printStackTrace();
-    }
+    // TODO Insert your method here
+    stack.addLast(stack.pollLast()*stack.pollLast());
   }
 
   public int read() {
-    try{
-      //if stack is not empty
-      if(!stack.isEmpty())
-        //return the last element in the stack
-        return stack.getLast();
-    }catch (Exception e){
-      e.printStackTrace();
-    }
-    return 0;
+    // TODO Insert your method here and update the return statement
+    return stack.getLast();
   }
 }
