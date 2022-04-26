@@ -56,9 +56,9 @@ public class dodgeBall
   }
 
   public void higher(int x){
-    distance = players.lower(x)-x; //calculate distance from player to the ball
+    distance = players.higher(x)-x; //calculate distance from player to the ball
     //1 assignment, 1 method call, 1 "-" = 2 + log n
-    players.remove(players.lower(x)); //remove the player from the TreeSet
+    players.remove(players.higher(x)); //remove the player from the TreeSet
     //2 method call = 2 log n
     players.add(x); //add player with the new position
    //1 method call = log n
